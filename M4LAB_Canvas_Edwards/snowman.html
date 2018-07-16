@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>snowman</title> 
+</head>
+
+<body>
+	
+	<canvas id ="canvas" width ="400" height ="400"></canvas>
+	
+	<script>
+	
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "Green";
+	
+	// Heat
+	ctx.fillStyle ="Black";
+	ctx.fillRect(40, 10, 20, 20);
+	ctx.fillRect(30, 25, 40, 05);
+	
+	// Head
+	ctx.beginPath();
+	ctx.arc(50, 50, 20, 0, Math.PI * 2, false);
+	ctx.stroke();
+	// Body
+	ctx.beginPath();
+	ctx.arc(50, 105, 35, 0, Math.PI * 2, false);
+	ctx.stroke();
+	//  Right eye
+	ctx.beginPath();
+	ctx.arc(40, 45, 2, 0, Math.PI * 2, false);
+	ctx.stroke();
+	//Left eye
+	ctx.beginPath();
+	ctx.arc(55, 45, 2, 0, Math.PI * 2, false);
+	ctx.stroke();
+	
+	
+	// Nose
+	ctx.beginPath();
+	ctx.arc(48, 55, 2, 0, Math.PI * 2, false);
+	ctx.stroke();
+	
+	// Buttons
+	ctx.beginPath();
+	ctx.arc(48, 90, 2, 0, Math.PI * 2, false);
+	ctx.stroke();
+	
+	ctx.beginPath();
+	ctx.arc(48, 105, 2, 0, Math.PI * 2, false);
+	ctx.stroke();
+	
+	ctx.fillStyle ="SkyBlue";
+	ctx.beginPath();
+	//ctx.moveTo(48, 120);
+	ctx.fillRect(48, 120, 2, 0);
+	ctx.arc(48, 120, 2, 0, Math.PI * 2, false);
+	ctx.stroke();
+	
+	// Arm
+	ctx.strokeStyle ="black";
+	//ctx.lineWidth = 4;
+	//ctx.beginPath();
+	ctx.moveTo(29, 85);
+	ctx.lineTo(8, 58);
+	
+	ctx.stroke();
+	</script>
+</body>
+</html>

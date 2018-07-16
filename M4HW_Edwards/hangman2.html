@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>HangMan</title>
+</head>
+
+<body>
+	<h1>HangMan!</h1>
+	
+	<script>
+	var wordArray = ["javascript", "monkey", "amazing", "pancake", "remaining", "problem", "playing", "programming", "homework", "mansour", "germany", "oscar", "beautiful"];
+	
+	var wordChosen = pickWord();
+	var answerArray = setupAnswerArray(wordChosen);
+	var remainingLetters = wordChosen.length;
+	
+	while (remainingLetters > 0) {
+	  showPlayerProgress(answerArray);
+	  var guess = getGuess();
+	  if (guess === null) {
+		break;
+	  }	else if (guess.length !== 1) {
+		alert("Please enter a single letter.");
+	  } else {
+		var correctGuess = updateGameState(guess, wordChosen, answerArray);
+		remainingLetters -= correctGuess;
+	  }
+	}
+	
+	showAnswerArrayAndCongratulatePlayer(answerArray);
+	
+		// Pick a random word.
+	function pickWord() {
+		
+		var wordPicked = wordArray[Math.floor(Math.random() * wordArray.length)];
+		return wordPicked; 
+	}
+	
+		// Set up the answer array.
+	function setupAnswerArray(wordChosen) {
+		
+		var answerArray = [];
+		for (var i = 0; i < wordChosen.length; i++) {
+			answerArray[i] = "_";
+		}
+		return answerArray;
+	}
+		
+		// Show the player their progress.
+	function showPlayerProgress(answerArray) {
+		alert(answerArray.join(" "));		
+	}
+	
+		// Get a guess from the player.
+	function getGuess() {
+		var guessInput = prompt("Guess a letter, or click Cancel to stop playing.");
+		guess = guessInput.toLowerCase();
+		return guess;
+	}
+	
+		// Upadate the game state with the guess.
+	function updateGameState(guess, wordChosen, answerArray) {
+		for (var j = 0; j < wordChosen.length; j++) {
+		  if (wordChosen[j] === guess && answerArray [j] === '_' ) {
+			answerArray[j] = guess;
+			remainingLetters--;
+		  }
+		}
+		return updateGameState;
+	}
+	
+		// Show the answer and congratulate the player.
+	function showAnswerArrayAndCongratulatePlayer(answerArray) {
+		alert(answerArray.join(" "));
+		alert("Good job! The answer was " + wordChosen);
+	}
+	
+	
+	</script>
+	
+	</body>
+	</html>
